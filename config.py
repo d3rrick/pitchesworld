@@ -3,7 +3,7 @@ import os
 class Config:
 	SECRET_KEY = "mysososossecretkey"
 	SQLALCHEMY_TRACK_MODIFICATIONS=True
-	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@localhost/blog2"
+	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@localhost/pitch"
 	UPLOADED_PHOTOS_DEST = "app/static/photos"
 
 	# email configurations
@@ -26,7 +26,7 @@ class DevConfig(Config):
 	DEBUG = True
 
 class TestConfig(Config):
-	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@localhost/blog2_test"
+	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@localhost/pitch_test"
 
 
 config_options = {
