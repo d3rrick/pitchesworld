@@ -13,12 +13,6 @@ class RegistrationForm(FlaskForm):
     password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
     submit = SubmitField('Sign Up')
 
-
-    # custom validators
-    # def validate_email(self,data_field):
-    # 	if User.query.filter_by(email=data_field).first():
-    # 		raise ValidationError("email already exist!!")
-
 class LoginForm(FlaskForm):
 	email = StringField('Your Email Address', validators=[Required(),Email()])
 	password = PasswordField('Password', validators=[Required()])
