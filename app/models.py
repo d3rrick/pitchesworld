@@ -25,7 +25,6 @@ class Pitch(db.Model):
 	""" This model handles the Pitch model that will be mapped to the database"""
 
 	__tablename__='pitches'
-
 	id = db.Column(db.Integer,primary_key=True)
 	author_id = db.Column(db.Integer, db.ForeignKey('users.id'),
         nullable=False)
@@ -44,7 +43,7 @@ class Pitch(db.Model):
 
 class Comment(db.Model):
 	""" This model handles the Comment model that will be mapped to the database"""
-	
+
 	__tablename__='comments'
 	id = db.Column(db.Integer,primary_key=True)
 	body = db.Column(db.Text)
@@ -57,12 +56,12 @@ class Comment(db.Model):
 	def __repr__(self):
 		return f"Comment : id: {self.id} comment: {self.body}"
 
-class Vote(db.Model):
-	__tablename='votes'
-	id = db.Column(db.Integer,primary_key=True)
-	vote=db.Column(db.Integer)
-	author_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-        nullable=False)
-	pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'),
-        nullable=False)
+# class Vote(db.Model):
+# 	__tablename='votes'
+# 	id = db.Column(db.Integer,primary_key=True)
+# 	vote=db.Column(db.Integer)
+# 	author_id = db.Column(db.Integer, db.ForeignKey('users.id'),
+#         nullable=False)
+# 	pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'),
+#         nullable=False)
 	
