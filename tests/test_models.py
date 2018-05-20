@@ -12,10 +12,9 @@ class TestUser(unittest.TestCase):
 	def setUp(self):
 		self.hashed_password = bcrypt.generate_password_hash('secrets').decode("utf-8")
 		self.user_derrick = User(username="derrick",password_hash=self.hashed_password,email="derrick@gmail.com",joined=datetime.utcnow(),profile_pic_path="/path/to/picture")
-		
+	# def tearDown(self):
 		# User.query.delete()
 		
-
 	def test_check_instance_variables(self):
 		self.assertEquals(self.user_derrick.username,'derrick')
 		self.assertEquals(self.user_derrick.email, 'derrick@gmail.com')
@@ -44,7 +43,6 @@ class TestPitch(unittest.TestCase):
 
 	def tearDown(self):
 		pass
-
 		# Pitch.query.delete()
 
 	def test_check_pitch_instance_variables(self):
@@ -91,7 +89,6 @@ class TestRegistrationForm(unittest.TestCase):
 	def setUp(self):
 		self.new_form = RegistrationForm(email="admin@gmail.com",username="Admin",password="secret",password_confirm="secret")
 
-
 	def test_registration(self):
 		# print(self.new_form.data)
 
@@ -101,7 +98,6 @@ class TestRegistrationForm(unittest.TestCase):
 class TestLoginForm(unittest.TestCase):
 	def setUp(self):
 		self.new_form = LoginForm(email="admin@gmail.com",password="secret",remember=True)
-
 
 	def test_login_form(self):
 
