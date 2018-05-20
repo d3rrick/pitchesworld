@@ -111,7 +111,7 @@ def delete(id):
 	pitch = Pitch.query.filter_by(id=id).first()
 	db.session.delete(pitch)
 	db.session.commit()
-	return redirect(url_for('main.profile'))
+	return redirect(url_for('main.index'))
 
 @main.route('/pitches/all_categories/')
 def categories():
