@@ -2,6 +2,8 @@ from flask_login import UserMixin
 from . import db
 from datetime import datetime
 
+
+
 class User(UserMixin,db.Model):
 
 	""" This model handles the User model that will be mapped to the database"""
