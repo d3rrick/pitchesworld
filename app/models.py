@@ -43,6 +43,8 @@ class Pitch(db.Model):
 
 
 class Comment(db.Model):
+	""" This model handles the Comment model that will be mapped to the database"""
+	
 	__tablename__='comments'
 	id = db.Column(db.Integer,primary_key=True)
 	body = db.Column(db.Text)
