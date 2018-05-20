@@ -20,13 +20,13 @@ class Config:
 	SIMPLEMDE_USE_CDN = True
 	
 class ProdConfig(Config):
-	pass
+	DEBUG=False
 
 class DevConfig(Config):
 	DEBUG = True
 
 class TestConfig(Config):
-	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@localhost/pitch_test"
+	SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@localhost/test_pitch"
 
 
 config_options = {
