@@ -7,28 +7,39 @@ from datetime import datetime
 from app.auth.forms import RegistrationForm,LoginForm
 
 class TestUser(unittest.TestCase):
-	global user
+	"""The class that handles user model testing"""
 
 	def setUp(self):
+		"""this method definines initiation of the data used for testing,
+		 its run before testing begins"""
+
 		self.hashed_password = bcrypt.generate_password_hash('secrets').decode("utf-8")
 		self.user_derrick = User(username="derrick",password_hash=self.hashed_password,email="derrick@gmail.com",joined=datetime.utcnow(),profile_pic_path="/path/to/picture")
 	# def tearDown(self):
 		# User.query.delete()
 		
 	def test_check_instance_variables(self):
+		"""testing whether instantiation is properly done"""
+
 		self.assertEquals(self.user_derrick.username,'derrick')
 		self.assertEquals(self.user_derrick.email, 'derrick@gmail.com')
 
 
 	def test_harshing(self):
+		"""this method checks instantiation of password hashes"""
+
 		self.assertTrue(bcrypt.check_password_hash(self.user_derrick.password_hash, 'secrets'))
 
 	def test_save_user(self):
+		"""this method tests whether users are properly saved in the databse"""
+
 		# db.session.add(self.user_derrick)
 		# db.session.commit()
 		self.assertTrue(len(User.query.all())>0)
 
 	def test_whether_data_is_saved(self):
+		"""this method checks proper retrieval of data"""
+		
 		# db.session.add(self.user_derrick)
 		# db.session.commit()
 		user = User.query.filter_by(username=self.user_derrick.username).first()
