@@ -57,12 +57,12 @@ class Comment(db.Model):
 	def __repr__(self):
 		return f"Comment : id: {self.id} comment: {self.body}"
 
-# class Vote(db.Model):
-# 	__tablename='votes'
-# 	id = db.Column(db.Integer,primary_key=True)
-# 	vote=db.Column(db.Integer)
-# 	author_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-#         nullable=False)
-# 	pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'),
-#         nullable=False)
+class Vote(db.Model):
+	__tablename='votes'
+	id = db.Column(db.Integer,primary_key=True)
+	vote=db.Column(db.Integer)
+	author_id = db.Column(db.Integer, db.ForeignKey('users.id'),
+        nullable=False)
+	pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'),
+        nullable=False)
 	
