@@ -5,7 +5,7 @@ from datetime import datetime
 class User(UserMixin,db.Model):
 
 	""" This model handles the User model that will be mapped to the database"""
-	
+
 	__tablename__="users"
 	id = db.Column(db.Integer,primary_key=True)
 	username = db.Column(db.String(255),index=True)
@@ -21,6 +21,9 @@ class User(UserMixin,db.Model):
 		return f"User : {self.username}"
 
 class Pitch(db.Model):
+
+	""" This model handles the Pitch model that will be mapped to the database"""
+
 	__tablename__='pitches'
 
 	id = db.Column(db.Integer,primary_key=True)
