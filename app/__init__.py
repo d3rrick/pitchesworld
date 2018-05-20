@@ -26,6 +26,8 @@ login_manager.session_protection='strong'
 login_manager.login_view = 'auth.login'
 
 def create_app(config_name):
+	"""this function initializes the app when called from manage.py file"""
+	
 	app = Flask(__name__)
 	app.config.from_object(config_options[config_name])
 
@@ -48,7 +50,6 @@ def create_app(config_name):
 	# photos configurations
 	configure_uploads(app,photos) 
 
-    
     #simple markdown initialization
 	simple.init_app(app)
 
