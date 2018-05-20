@@ -17,8 +17,11 @@ def load_user(user_id):
 
 @auth.route('/login',methods=['GET','POST'])
 def login():
-	login_form = LoginForm()
 
+	"""this function handles login functionalities"""
+
+
+	login_form = LoginForm()
 	if login_form.validate_on_submit():
 		user = User.query.filter_by(email=login_form.email.data).first()
 		if user and bcrypt.check_password_hash(user.password_hash, login_form.password.data):
@@ -27,12 +30,11 @@ def login():
 			return redirect(url_for('main.categories'))
 		else:
 			print("unsuccessful")
-				
-
 	return render_template('auth/login.html', login_form=login_form)
 
 @auth.route('/register', methods=['GET','POST'])
 def register():
+	"""this function handles registration functionalities"""
 	form = RegistrationForm()
 
 	if form.validate_on_submit():
@@ -48,6 +50,9 @@ def register():
 @auth.route('/logout')
 @login_required
 def logout():
+
+	"""this function handles logout functionalities"""
+
 	logout_user()
 	flash('You have been logged out.',"danger")
 	return redirect(url_for('main.index'))
