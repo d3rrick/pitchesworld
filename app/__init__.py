@@ -8,6 +8,8 @@ from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_simplemde import SimpleMDE
 from flask_socketio import SocketIO ,send
 from flask_moment import Moment
+
+
 # instance of the database
 db = SQLAlchemy()
 bootstrap = Bootstrap()
